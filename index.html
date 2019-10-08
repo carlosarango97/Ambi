@@ -4,16 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/mycustomstyle.css">
+    <link rel="StyleSheet" href="css/main.css">
+
     <title>Document</title>
 </head>
 <body>
-    <section id="main-section"></section>
+    <section id="main-section" >
+
+        <h1>Trivia</h1>
+        <div class="text-center">
+            <input type="button" value="Comenzar" class="button" onclick="changePage('trivia-section','main-section');"><br>
+            <input type="button" value="Creditos" class="button" onclick="changePage('credits-section','main-section');"> 
+        </div>
+        
+        
+        
+
+    </section>
     <section id="trivia-section" class="invisible"></section>
     <section id="correct-answer-section" class="invisible"></section>
     <section id="wrong-answer-section" class="invisible"></section>
     <section id="topics-section" class="invisible"></section>
     <section id="plants-section" class="invisible"></section>
     <section id="words-section" class="invisible"></section>
-    <section id="credits-section" class="invisible"></section>
+    <section id="credits-section" class="invisible">
+        <h1>Creditos</h1>
+        <h2>Desarrollo</h2>
+        <p>
+            Carlos Fernando Arango<br>
+            Juan Pablo Cano<br>
+            Duvan Giraldo<br>   
+        </p>
+        <h2>Diseño</h2>
+        <p>
+            Daniela Arenas<br>
+            Tatiana Andrade<br>
+        </p>
+        
+    </section>
+    <script src="js/main.js"></script>    
+
 </body>
 </html>

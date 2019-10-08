@@ -14,3 +14,12 @@ h1,h2,p{
     border-radius: 5%;
 }
 
+img{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+

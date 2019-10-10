@@ -1,3 +1,44 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#trivia-section{
+    background: greenyellow;
+    height: 81%;
+    text-align: center;
+    font-size: 138%;
+    padding-top: 35%;
+}
+
+#question{
+    color: white;
+}
+
+#btnBack_trivia{
+    position: absolute;
+    top: 2%;
+    left: 3%;
+    width: 10%;
+}
+
+#answers_div{
+    position: relative;
+    top: 25%;
+    width: 80%;
+    left: 10%;
+}
+
 .invisible{
     display: none !important;
 }
+
+.answer{
+    background: white;
+    margin-top: 10%;
+    border-radius: 22px;
+    border-style: solid;
+    border-width: 2px;
+}
+

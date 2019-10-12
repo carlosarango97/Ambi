@@ -7,6 +7,7 @@ body{
     display: none !important;
 }
 
+
 /* -------------- Plants Section -------------- */
 
 #plant-image{
@@ -23,19 +24,39 @@ body{
 #plants-section{
     display: inline-flex;
     width: 100%;
-    height: auto;
+    height: 100%;
     
 }
 
 #plant-description{
+    position: absolute;
     width: 100%;
-    background:green;
-    border-top-right-radius: 20%;
-    border-top-left-radius: 20%;
+    height: 40%;
+    background:rgb(58, 68, 82);
+    border-top-right-radius: 15%;
+    border-top-left-radius: 15%;
     margin-top: 5%;
+    bottom: 0px;
 }
 
 #plant-description p{
     display: inline-flex;
     margin: 10%;
+    color: ivory;
 }
+
+#buttonsdiv{
+   /* background: blue; */
+   text-align: center;
+   /* height: auto; */
+   height: 60%;
+}
+
+.navigation-button{
+    border-radius: 3%;
+    width: 50%;
+    height: 15%;
+    margin: 5%;
+    
+}
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -29,10 +30,12 @@
         firebase.initializeApp(firebaseConfig);
     </script>
 </head>
+
 <body onload="triviaStarter();">
     <section id="main-section" class="invisible"></section>
     <section id="trivia-section">
-        <img src="img/btnBack.png" id="btnBack_trivia" alt="back" onclick="changePage('main-section','trivia-section');">
+        <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
+            onclick="changePage('main-section','trivia-section');">
         <span id="question">This'll be the question</span>
         <div id="answers_div">
             <div id="answer1" class="answer"><span id="span_answer1">Answer 1</span></div>
@@ -41,8 +44,30 @@
             <div id="answer4" class="answer"><span id="span_answer4">Answer 4</span></div>
         </div>
     </section>
-    <section id="plants-section" class="invisible"></section>
+    <section id="plants-section" class="invisible">
+        <div>
+            <img id="plant-image" src="img/Plants-Section/ejemplo1.png">
+            <div id="plant-description">
+                <p>Esta planta sirve para ganar aplicaciones moviles. </p>
+
+                <div id="buttonsdiv">
+                    <button class="navigation-button"
+                        onclick="window.open('https://youtu.be/dQw4w9WgXcQ?t=1' , 'MiPestañaNueva' , 'width=800, height=600, scrollbars=no')">
+                        Descubre más
+                    </button>
+
+                    <button class="navigation-button" onclick="changePage('trivia-section', 'plants-section');">
+                        siguiente pregunta
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
     <section id="credits-section" class="invisible"></section>
     <script src="js/main.js"></script>
-</body>
+
+
 </html>

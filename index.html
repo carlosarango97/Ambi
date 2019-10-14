@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -27,16 +29,16 @@
         firebase.initializeApp(firebaseConfig);
     </script>
 </head>
-<body>
+<body onload="triviaStarter();">
     <section id="main-section" class="invisible"></section>
     <section id="trivia-section">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back" onclick="changePage('main-section','trivia-section');">
         <span id="question">This'll be the question</span>
         <div id="answers_div">
-            <div id="answer1" class="answer"><span>Answer 1</span></div>
-            <div id="answer2" class="answer"><span>Answer 2</span></div>
-            <div id="answer3" class="answer"><span>Answer 3</span></div>
-            <div id="answer4" class="answer"><span>Answer 4</span></div>
+            <div id="answer1" class="answer"><span id="span_answer1">Answer 1</span></div>
+            <div id="answer2" class="answer"><span id="span_answer2">Answer 2</span></div>
+            <div id="answer3" class="answer"><span id="span_answer3">Answer 3</span></div>
+            <div id="answer4" class="answer"><span id="span_answer4">Answer 4</span></div>
         </div>
     </section>
     <section id="plants-section" class="invisible"></section>

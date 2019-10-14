@@ -53,14 +53,13 @@ p{
     left: 10%;
 }
 
-#main-section{
+section{
     height: 86%;
     padding-top: 25%;    
 }
 
 #credits-section{
-    height: 86%;
-    padding-top: 25%;
+
     background: yellow;    
 }
 

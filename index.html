@@ -31,13 +31,19 @@
     </script>
 </head>
 <body onload="triviaStarter();">
-    <section id="main-section"></section>
+    <section id="main-section" class="sections">
+        <h1>AMBI</h1>
+        <div class="container">
+            <input type="button" class="button-menu text" value="Start" onclick="changePage('trivia-section','main-section')"><br>
+            <input type="button" class="button-menu text" value="Credits" onclick="changePage('credits-section','main-section')">
+        </div>
+    </section>
     <section id="trivia-section" class="invisible">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
             onclick="changePage('main-section','trivia-section');">
         <span id="question">This'll be the question</span>
         <div id="answers_div">
-            <div id="answer1" class="answer" onclick="checkAnswer('1');"><span id="span_answer1" onclick="changePage('plants-section','trivia-section');">Answer 1</span></div>
+            <div id="answer1" class="answer" onclick="checkAnswer('1');"><span id="span_answer1">Answer 1</span></div>
             <div id="answer2" class="answer" onclick="checkAnswer('2');"><span id="span_answer2">Answer 2</span></div>
             <div id="answer3" class="answer" onclick="checkAnswer('3');"><span id="span_answer3">Answer 3</span></div>
             <div id="answer4" class="answer" onclick="checkAnswer('4');"><span id="span_answer4">Answer 4</span></div>
@@ -62,7 +68,24 @@
             </div>
         </div>
     </section>
-    <section id="credits-section" class="invisible"></section>
+    <section id="credits-section" class="invisible sections">
+        <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
+        onclick="changePage('main-section','credits-section');">
+        <h1 class="text">Credits</h1>
+        <div class="container">
+            <h2 class="text">Development</h2>
+            <p class="text">  
+            Carlos Arango<br>
+            Juan Pablo Cano<br>
+            Duvan Giraldo<br>   
+            </p>
+            <h2 class="text">Design</h2>
+            <p class="text">
+                Daniela Arenas<br>
+                Tatiana Andrade<br>
+            </p>
+        </div>                
+    </section>
     <script src="js/main.js"></script>
 </body>
 </html>

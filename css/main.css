@@ -6,14 +6,18 @@ html,body{
 
 #trivia-section{
     background: greenyellow;
-    height: 81%;
+    height: 100%;
     text-align: center;
     font-size: 138%;
-    padding-top: 35%;
 }
 
 #question{
     color: white;
+}
+
+#div_question{
+    position: relative;
+    top: 25%;
 }
 
 #btnBack_trivia{
@@ -25,7 +29,7 @@ html,body{
 
 #answers_div{
     position: relative;
-    top: 25%;
+    top: 40%;
     width: 80%;
     left: 10%;
 }
@@ -83,7 +87,7 @@ html,body{
    /* background: blue; */
    text-align: center;
    /* height: auto; */
-   height: 60%;
+   height: 56%;
 }
 
 .navigation-button{
@@ -136,7 +140,6 @@ p{
 }
 
 .sections{
-    height: 86%;
-    padding-top: 20%;
+    height: 100%;
     background:#1A4341;     
 }

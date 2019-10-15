@@ -37,34 +37,38 @@
 >>>>>>> feature/main-menu
 </head>
 
+<<<<<<< HEAD
 <body>
 <<<<<<< HEAD
+=======
+<body onload="triviaStarter();">
+>>>>>>> parent of c6617f2... Repairs
     <section id="main-section" class="invisible"></section>
     <section id="trivia-section">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
             onclick="changePage('main-section','trivia-section');">
         <span id="question">This'll be the question</span>
         <div id="answers_div">
-            <div id="answer1" class="answer" onclick="checkAnswer('1');"><span id="span_answer1" onclick="changePage('plants-section','trivia-section');">Answer 1</span></div>
-            <div id="answer2" class="answer" onclick="checkAnswer('2');"><span id="span_answer2">Answer 2</span></div>
-            <div id="answer3" class="answer" onclick="checkAnswer('3');"><span id="span_answer3">Answer 3</span></div>
-            <div id="answer4" class="answer" onclick="checkAnswer('4');"><span id="span_answer4">Answer 4</span></div>
+            <div id="answer1" class="answer"><span id="span_answer1" onclick="changePage('plants-section','trivia-section');">Answer 1</span></div>
+            <div id="answer2" class="answer"><span id="span_answer2">Answer 2</span></div>
+            <div id="answer3" class="answer"><span id="span_answer3">Answer 3</span></div>
+            <div id="answer4" class="answer"><span id="span_answer4">Answer 4</span></div>
         </div>
     </section>
     <section id="plants-section" class="invisible">
         <div>
             <img id="plant-image" src="img/Plants-Section/ejemplo1.png">
             <div id="plant-description">
-                <p>This plant is useful for win mobile applications.</p>
+                <p>Esta planta sirve para ganar aplicaciones moviles. </p>
 
                 <div id="buttonsdiv">
                     <button class="navigation-button"
                         onclick="window.open('https://youtu.be/dQw4w9WgXcQ?t=1' , 'MiPestañaNueva' , 'width=800, height=600, scrollbars=no')">
-                        Find out more!
+                        Descubre más
                     </button>
 
                     <button class="navigation-button" onclick="changePage('trivia-section', 'plants-section');">
-                        Next question
+                        siguiente pregunta
                     </button>
                 </div>
             </div>

@@ -9,26 +9,26 @@
     <title>Ambi</title>
 </head>
 <body>
-    <section id="main-section" >
+    <section id="main-section" class="sections">
         <h1>AMBI</h1>
-        <div id="container">
-            <input type="button" class="button-menu" value="Start"><br>
-            <input type="button" class="button-menu" value="Credits" onclick="changePage('credits-section','main-section')">
+        <div class="container">
+            <input type="button" class="button-menu text" value="Start" onclick="changePage('trivia-section','main-section')"><br>
+            <input type="button" class="button-menu text" value="Credits" onclick="changePage('credits-section','main-section')">
         </div>
     </section>
     <section id="trivia-section" class="invisible"></section>
     <section id="plants-section" class="invisible"></section>
-    <section id="credits-section" class="invisible">
-        <h1>Credits</h1>
-        <div id="container">
-            <h2>Development</h2>
-            <p>
-            Carlos Fernando Arango<br>
+    <section id="credits-section" class="invisible sections">
+        <h1 class="text">Credits</h1>
+        <div class="container">
+            <h2 class="text">Development</h2>
+            <p class="text">  
+            Carlos Arango<br>
             Juan Pablo Cano<br>
             Duvan Giraldo<br>   
             </p>
-            <h2>Design</h2>
-            <p>
+            <h2 class="text">Design</h2>
+            <p class="text">
                 Daniela Arenas<br>
                 Tatiana Andrade<br>
             </p>

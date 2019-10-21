@@ -34,7 +34,7 @@
     <section id="main-section" class="sections">
         <h1>AMBI</h1>
         <div class="container">
-            <input type="button" class="button-menu text" value="Start" onclick="changePage('trivia-section','main-section')"><br>
+            <input type="button" class="button-menu text" value="Start" onclick="changePage('trivia-section','main-section');charge(true);"><br>
             <input type="button" class="button-menu text" value="Credits" onclick="changePage('credits-section','main-section')">
         </div>
     </section>
@@ -63,7 +63,7 @@
                         Find out more!
                     </button>
 
-                    <button class="navigation-button" onclick="changePage('trivia-section', 'plants-section');">
+                    <button class="navigation-button" onclick="changePage('trivia-section', 'plants-section');charge(true);">
                         Next question
                     </button>
                 </div>
@@ -88,6 +88,17 @@
             </p>
         </div>                
     </section>
+    <section id="block" class="invisible">
+        <div id="block_div">
+            <p> </p>
+        </div>
+    </section>
+    <section id="charge" class="invisible">
+        <div id="charge_div">
+            <p id="charge_title">Charging...</p>
+        </div>
+    </section>    
+    <script src="js/confetti.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

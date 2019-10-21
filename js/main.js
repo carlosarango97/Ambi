@@ -31,21 +31,46 @@ function triviaStarter(){
                 }
             }
         }
+        charge(false);
     });
 }
 
 function checkAnswer(answer){
     if(answer==correct){
-        correctAnswer();
+        correctAnswer(answer);
     }else{
-        wrongAnswer();
+        wrongAnswer(answer);
     }
 }
 
-function wrongAnswer(){
-    alert("Wrong answer!");
+function wrongAnswer(answer){
+    // alert("Wrong answer!");
+    document.getElementById("answer" + answer).className += " animation wrongAnswer";
+    document.getElementById("block").classList.remove("invisible");
+    setTimeout(function(){
+        document.getElementById("answer" + answer).classList.remove("animation");
+        setTimeout(function(){
+            document.getElementById("block").classList.add("invisible");
+            document.getElementById("answer" + answer).classList.remove("wrongAnswer");
+            changePage("main-section","trivia-section")
+        },2000);
+    }, 1000);
 }
 
-function correctAnswer(){
-    changePage('plants-section','trivia-section');
+function correctAnswer(answer){
+    document.getElementById("answer" + answer).classList.add("correctAnswer","animation");
+    confetti.start();
+    setTimeout(function(){
+        document.getElementById("answer" + answer).classList.remove("correctAnswer","animation");
+        confetti.stop();       
+        changePage('plants-section','trivia-section');
+    },4000);
 } 
+
+function charge(ok){
+    if(ok){
+        document.getElementById("charge").classList.remove("invisible");
+    }else{
+        document.getElementById("charge").classList.add("invisible");
+    }
+}

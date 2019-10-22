@@ -32,8 +32,8 @@
 </head>
 <body onload="triviaStarter();">
     <section id="main-section" class="sections">
-        <h1>AMBI</h1>
-        <div class="container">
+        <img src="img/logo.jpg"id="image" alt="logo">
+        <div class="container" id="divButtons">
             <input type="button" class="button-menu text" value="Start" onclick="changePage('trivia-section','main-section');charge(true);"><br>
             <input type="button" class="button-menu text" value="Credits" onclick="changePage('credits-section','main-section')">
         </div>
@@ -74,7 +74,7 @@
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
         onclick="changePage('main-section','credits-section');">
         <h1 class="text">Credits</h1>
-        <div class="container">
+        <div class="container" id="divCredits">
             <h2 class="text">Development</h2>
             <p class="text">  
             Carlos Arango<br>

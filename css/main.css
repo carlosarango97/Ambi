@@ -184,12 +184,12 @@ h1{
     width: 80%;
     left: 10%;
     font-size: 210%;
-    color:white;
+    color:whitesmoke;
 }
 
 .text{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
+    font-family: cursive;
+    color: whitesmoke;
 }
 
 h1,.button-menu,.container{
@@ -197,28 +197,53 @@ h1,.button-menu,.container{
 }
 
 p{
-    font-size: 120%;
+    font-size: 150%;
 }
 
 .button-menu{
     font-size: 150%;
-    width:150px;
+    width:80%;
     height: 50px;
     margin-bottom:20px;
     border-radius: 50px;
-    color:#1A4341 ;
-    background:white;
+    color: whitesmoke;
+    background:#298E7D;
     
 }
 
 .container{
     position: absolute;
-    top: 50%;
     width: 50%;
     left: 25%;
 }
 
 .sections{
-    height: 100%;
-    background:#1A4341;     
+    height: 100%;   
+}
+
+#main-section{
+    background-color: whitesmoke;
+}
+#image{
+    position: absolute;
+    top: -30%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 35%;
+    height: 35%;
+    margin: auto;
+    
+}
+
+#credits-section{
+    background-color: #298E7D;
+}
+
+#divButtons{
+    top: 65%;
+}
+
+#divCredits{
+    top: 35%;
 }

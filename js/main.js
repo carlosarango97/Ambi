@@ -1,5 +1,6 @@
 const db = firebase['firestore']();
 
+// var db = firebase.firestore();
 var defaultStorage = firebase.storage();
 
 var correct = 2;

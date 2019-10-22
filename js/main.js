@@ -5,6 +5,10 @@ function changePage(idIn, idOut){
     if(idIn=="trivia-section"){
         triviaStarter();
     }
+
+    if(idIn=="plants-section"){
+        plantLoader(1);
+    }
     document.getElementById(idIn).classList.remove("invisible");
     document.getElementById(idOut).className += " invisible";
 }
@@ -73,4 +77,16 @@ function charge(ok){
     }else{
         document.getElementById("charge").classList.add("invisible");
     }
+}
+
+
+function plantLoader(currentQuestion){
+
+    db.collection("Preguntas").doc(currentQuestion.toString).get().then(snap => {
+        document.getElementById("plant-image").src = snap.data().PlantIMG;
+        document.getElementById("plant-description").innerHTML = snap.data().Respuesta;
+        charge(false);
+    });
+
+    
 }

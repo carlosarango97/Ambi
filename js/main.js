@@ -1,11 +1,6 @@
 const db = firebase['firestore']();
 const defaultStorage = firebase.storage();
 
-
-
-
-
-
 var currentTriviaQuestion;
 
 var correct = 2;
@@ -22,7 +17,7 @@ function changePage(idIn, idOut) {
     document.getElementById(idOut).className += " invisible";
 }
 
- function ramdomizer(questions){
+function ramdomizer(questions) {
     return parseInt(Math.random() * (questions - 1) + 1);;
 }
 
@@ -94,17 +89,16 @@ function charge(ok) {
 
 
 function plantLoader(currentQuestion) {
-    var storage = firebase.app().storage("gs://ambi-67875.appspot.com/AnswersImg");
 
     db.collection("Preguntas").doc(currentQuestion.toString()).get().then(snap => {
-        // document.getElementById("plant-image").src = defaultStorage.refFromURL(snap.data().PlantIMG);
-        // document.getElementById("plant-image").src = storage.refFromURL("/1_manzanilla.png");
-        document.getElementById("plant-image").src = defaultStorage.refFromURL("gs://ambi-67875.appspot.com/AnswersImg/1_manzanilla.png");
         document.getElementById("plant-description-p").innerHTML = snap.data().Respuesta;
-
-
+        document.getElementById("plant-image").src = snap.data().PlantIMG;
     });
 
+    // var starsRef = defaultStorage.ref('AnswersImg/1_manzanilla.png');
+    // document.getElementById("plant-image").src = (starsRef.getDownloadURL().then(function (url) {})).toString();
+
+    // document.getElementById("plant-image").src = 'https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F1_manzanilla.png?alt=media&token=e28265c8-e837-4878-8caa-82e1f1e17317';
 }
 
 function registerMaker() {
@@ -142,16 +136,34 @@ function registerMaker() {
         "Helecho gu-sui-bu",
     ];
 
+    var plantsurl = ["https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F1_manzanilla.png?alt=media&token=e28265c8-e837-4878-8caa-82e1f1e17317",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F3_eucalipto.png?alt=media&token=a626a841-c38a-42f1-a414-c84c4593df57",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F3_eucalipto.png?alt=media&token=a626a841-c38a-42f1-a414-c84c4593df57",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F4_Tomillo.png?alt=media&token=a01fdded-08a8-41e7-b077-13a6498e4ce6",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F5_lavanda.png?alt=media&token=c6d65c8c-6f94-4175-823e-3b8bd057c8d6",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F6_oregano.png?alt=media&token=1ba12efb-43bd-43b5-95e8-f97dae0f07b3",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F7_ginseng.png?alt=media&token=27d3fb57-1127-4c21-a6ea-7b4d2cc6e68d",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+
+    ];
+
     for (let i = 0; i < preguntas.length; i++) {
-        db.collection("Preguntas").doc((i+1).toString()).set({
+        db.collection("Preguntas").doc((i + 1).toString()).set({
             Correcta: "Correcta",
             Incorrecta1: "Incorrecta",
             Incorrecta2: "Incorrecta",
             Incorrecta3: "Incorrecta",
-            PlantIMG: "gs://ambi-67875.appspot.com/ejemplo1.png",
+            PlantIMG: plantsurl[i],
             Pregunta: preguntas[i],
-            Respuesta: respuestas[i] ,
-        }).then(function() {
+            Respuesta: respuestas[i],
+        }).then(function () {
             console.log("Document successfully written!");
         });
     }

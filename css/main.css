@@ -9,6 +9,7 @@ html,body{
     height: 100%;
     text-align: center;
     font-size: 138%;
+
 }
 
 #question{
@@ -177,7 +178,7 @@ html,body{
     
 }
 
-/* main menu and credits*/
+/* -----------main menu and credits------------*/
 h1{
     position: absolute;
     top: 20%;
@@ -188,7 +189,7 @@ h1{
 }
 
 .text{
-    font-family: cursive;
+    font-family: Arial, Helvetica, sans-serif;
     color: whitesmoke;
 }
 
@@ -217,13 +218,20 @@ p{
     left: 25%;
 }
 
-.sections{
-    height: 100%;   
+.sections {
+    height: 100%;
+    animation: transitionSection;
+    animation-duration: 0.5s;
+    
 }
+
+
+
 
 #main-section{
     background-color: whitesmoke;
 }
+
 #image{
     position: absolute;
     top: -30%;
@@ -245,5 +253,34 @@ p{
 }
 
 #divCredits{
+    
     top: 35%;
+   
 }
+
+
+/*transitions*/
+@keyframes transitionSection{
+
+    
+    
+    from{
+
+        opacity: 0;
+        transform: translateY(450px);
+       
+    }
+
+    to{
+
+        opacity: 1;
+        transform: translateY(0px);
+      
+
+    }
+    
+
+}
+
+
+

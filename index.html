@@ -11,6 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -30,12 +31,18 @@
         firebase.initializeApp(firebaseConfig);
     </script>
 </head>
+
 <body onload="triviaStarter();">
     <section id="main-section" class="sections">
-        <img src="img/logo.jpg"id="image" alt="logo">
+        <img src="img/logo.jpg" id="image" alt="logo">
         <div class="container" id="divButtons">
-            <input type="button" class="button-menu text" value="Start" onclick="changePage('trivia-section','main-section');charge(true);"><br>
-            <input type="button" class="button-menu text" value="Credits" onclick="changePage('credits-section','main-section')">
+            <input type="button" class="button-menu text" value="Start"
+                onclick="changePage('trivia-section','main-section');charge(true);"><br>
+            <input type="button" class="button-menu text" value="Credits"
+                onclick="changePage('credits-section','main-section')">
+
+                <input type="button" class="button-menu text" value="asd"
+                onclick="registerMaker()">
         </div>
     </section>
     <section id="trivia-section" class="invisible">
@@ -55,7 +62,7 @@
         <div>
             <img id="plant-image" src="img/Plants-Section/ejemplo1.png">
             <div id="plant-description">
-                <p>This plant is useful for win mobile applications.</p>
+                <p id="plant-description-p">This plant is useful for win mobile applications.</p>
 
                 <div id="buttonsdiv">
                     <button class="navigation-button"
@@ -63,7 +70,8 @@
                         Find out more!
                     </button>
 
-                    <button class="navigation-button" onclick="changePage('trivia-section', 'plants-section');charge(true);">
+                    <button class="navigation-button"
+                        onclick="changePage('trivia-section', 'plants-section');charge(true);">
                         Next question
                     </button>
                 </div>
@@ -72,21 +80,21 @@
     </section>
     <section id="credits-section" class="invisible sections">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
-        onclick="changePage('main-section','credits-section');">
+            onclick="changePage('main-section','credits-section');">
         <h1 class="text">Credits</h1>
         <div class="container" id="divCredits">
             <h2 class="text">Development</h2>
-            <p class="text">  
-            Carlos Arango<br>
-            Juan Pablo Cano<br>
-            Duvan Giraldo<br>   
+            <p class="text">
+                Carlos Arango<br>
+                Juan Pablo Cano<br>
+                Duvan Giraldo<br>
             </p>
             <h2 class="text">Design</h2>
             <p class="text">
                 Daniela Arenas<br>
                 Tatiana Andrade<br>
             </p>
-        </div>                
+        </div>
     </section>
     <section id="block" class="invisible">
         <div id="block_div">
@@ -97,8 +105,9 @@
         <div id="charge_div">
             <p id="charge_title">Charging...</p>
         </div>
-    </section>    
+    </section>
     <script src="js/confetti.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

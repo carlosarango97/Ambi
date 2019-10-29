@@ -1,7 +1,12 @@
 const db = firebase['firestore']();
+const defaultStorage = firebase.storage();
 
-// var db = firebase.firestore();
-var defaultStorage = firebase.storage();
+
+
+
+
+
+var currentTriviaQuestion;
 
 var correct = 2;
 
@@ -11,16 +16,20 @@ function changePage(idIn, idOut) {
     }
 
     if (idIn == "plants-section") {
-        plantLoader(1);
+        plantLoader(currentTriviaQuestion);
     }
     document.getElementById(idIn).classList.remove("invisible");
     document.getElementById(idOut).className += " invisible";
 }
 
+ function ramdomizer(questions){
+    return parseInt(Math.random() * (questions - 1) + 1);;
+}
+
 function triviaStarter() {
-    var questions = 4;
-    var i = parseInt(Math.random() * (questions - 1) + 1);
-    db.collection("Preguntas").doc(i.toString()).get().then(snap => {
+
+    currentTriviaQuestion = ramdomizer(15);
+    db.collection("Preguntas").doc(currentTriviaQuestion.toString()).get().then(snap => {
         document.getElementById("question").innerHTML = snap.data().Pregunta;
         correct = parseInt(Math.random() * 4 + 1);
         document.getElementById("span_answer" + correct).innerHTML = snap.data().Correcta;
@@ -85,12 +94,66 @@ function charge(ok) {
 
 
 function plantLoader(currentQuestion) {
+    var storage = firebase.app().storage("gs://ambi-67875.appspot.com/AnswersImg");
 
-    db.collection("Preguntas").doc(currentQuestion.toString).get().then(snap => {
-        document.getElementById("plant-image").src = defaultStorage.refFromURL(snap.data().PlantIMG);
+    db.collection("Preguntas").doc(currentQuestion.toString()).get().then(snap => {
+        // document.getElementById("plant-image").src = defaultStorage.refFromURL(snap.data().PlantIMG);
+        // document.getElementById("plant-image").src = storage.refFromURL("/1_manzanilla.png");
+        document.getElementById("plant-image").src = defaultStorage.refFromURL("gs://ambi-67875.appspot.com/AnswersImg/1_manzanilla.png");
         document.getElementById("plant-description-p").innerHTML = snap.data().Respuesta;
 
 
     });
+
+}
+
+function registerMaker() {
+
+    var preguntas = ["¿Qué planta se considera la más útil para acabar con la acidez estomacal?",
+        "¿Qué planta se considera favorecedora para la regeneración cutánea?",
+        "¿Qué planta es conocida especialmente por su acción ante las enfermedades respiratorias?",
+        "¿Qué planta era utilizada en la antigüedad para tratar heridas como antiséptico?",
+        "¿Qué planta se considera útil para situaciones de estrés e insomnio?",
+        "¿Qué planta es bastante conocida en nuestras cocinas y también como excelente antioxidante?",
+        "¿Qué planta es conocida por disminuir la tensión art erial y reducir el ritmo cardíaco?",
+        "¿Qué planta es utilizada para infusiones energizantes y que mantienen activas a las personas?",
+        "¿Qué planta se utiliza como digestiva y laxante gracias a su alto contenido de fibra?",
+        "¿Qué planta se utiliza como aceite esencial para antiespasmódicos o sedantes?",
+        "¿Qué planta es bastante popular por sus propiedades cicatrizantes?",
+        "¿Qué planta se utiliza en infusiones como relajante?",
+        "¿Qué planta es utilizada por su corteza para la irritación de garganta?",
+        "¿Qué planta es apreciada por sus propiedades digestivas y para la expulsión de gases?",
+        "¿Qué planta ha sido utilizada durante siglos para favorecer la regeneración de huesos?",
+    ];
+    var respuestas = ["Manzanilla",
+        "Aloe Vera",
+        "Eucalipto",
+        "Tomillo",
+        "Lavanda",
+        "Orégano",
+        "Pasiflora",
+        "Ginseng",
+        "Apio",
+        "Ruda",
+        "Caléndula",
+        "Limoncillo",
+        "Olmo",
+        "Hinojo",
+        "Helecho gu-sui-bu",
+    ];
+
+    for (let i = 0; i < preguntas.length; i++) {
+        db.collection("Preguntas").doc((i+1).toString()).set({
+            Correcta: "Correcta",
+            Incorrecta1: "Incorrecta",
+            Incorrecta2: "Incorrecta",
+            Incorrecta3: "Incorrecta",
+            PlantIMG: "gs://ambi-67875.appspot.com/ejemplo1.png",
+            Pregunta: preguntas[i],
+            Respuesta: respuestas[i] ,
+        }).then(function() {
+            console.log("Document successfully written!");
+        });
+    }
 
 }

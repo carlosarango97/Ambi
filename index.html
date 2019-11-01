@@ -34,17 +34,51 @@
 
 <body onload="triviaStarter();">
     <section id="main-section" class="sections">
-        <img src="img/logo.jpg" id="image" alt="logo">
+        <img src="img/logo.png" id="image" alt="logo">
         <div class="container" id="divButtons">
-            <input type="button" class="button-menu text" value="Start"
-                onclick="changePage('trivia-section','main-section');charge(true);"><br>
-            <input type="button" class="button-menu text" value="Credits"
-                onclick="changePage('credits-section','main-section')">
+            <input type="button" class="button-menu" value="Start"
+                onclick="changePage('levels-section','main-section')"><br>
+          <!--  <input type="button" class="button-menu" value="Credits"
+                onclick="changePage('credits-section','main-section')"> -->
+            <a href="#" onclick="changePage('credits-section','main-section')">Credits</a>    
 
                 <!-- <input type="button" class="button-menu text" value="asd"
                 onclick="registerMaker()"> -->
         </div>
     </section>
+
+    <section id="levels-section" class="sections invisible">
+        <img src="img/btn_back_black.png" id="btnBack_trivia" alt="back"
+        onclick="changePage('main-section','levels-section');">
+
+        <img id="imgLevel1"  class="levelImg"src="img/cont_lev.png"  alt="level1" onclick="changePage('trivia-section','levels-section')">
+        <div id="divLevel1"class="divLevels">
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+        </div>
+        <img id="imgLevel2"  class="levelImg"src="img/cont_lev.png"  alt="level2">
+        <div id="divLevel2"class="divLevels">
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png">
+        </div>
+        <img id="imgLevel3"  class="levelImg"src="img/cont_lev.png"  alt="level3">
+        <div id="divLevel3"class="divLevels">
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >
+            <img src="img/star.png" >   
+        </div>
+        
+    </section>
+
+
     <section id="trivia-section" class="invisible">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
             onclick="changePage('main-section','trivia-section');">
@@ -79,21 +113,20 @@
         </div>
     </section>
     <section id="credits-section" class="invisible sections">
-        <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
-            onclick="changePage('main-section','credits-section');">
-        <h1 class="text">Credits</h1>
+        <img src="img/btn_back_white.png" id="btnBack_trivia" alt="back"
+        onclick="changePage('main-section','credits-section');">
         <div class="container" id="divCredits">
-            <h2 class="text">Development</h2>
-            <p class="text">
-                Carlos Arango<br>
-                Juan Pablo Cano<br>
-                Duvan Giraldo<br>
-            </p>
-            <h2 class="text">Design</h2>
-            <p class="text">
-                Daniela Arenas<br>
-                Tatiana Andrade<br>
-            </p>
+            <h2 class="textTitle" class="text">Development</h2>
+                <p class="text">
+                    Carlos Arango<br>
+                    Juan Pablo Cano<br>
+                    Duvan Giraldo<br>
+                </p>
+            <h2 class="textTitle">Design</h2>
+                <p class="text">
+                    Daniela Arenas<br>
+                    Tatiana Andrade<br>
+                </p>
         </div>
     </section>
     <section id="block" class="invisible">

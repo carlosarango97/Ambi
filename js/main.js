@@ -26,6 +26,8 @@ function changePage(idIn, idOut) {
     }
     if (idIn == "plants-section") {
         plantLoader(currentTriviaQuestion);
+    }else if(idIn=="levels-section"){
+        levelSelector();
     }
     document.getElementById(idIn).classList.remove("invisible");
     document.getElementById(idOut).className += " invisible";
@@ -51,6 +53,12 @@ function startLevel(level){
     triviaStarter();
     changePage('trivia-section','levels-section');
     charge(true);
+}
+
+function levelSelector(){
+    for(let h=1; h<=15; h++){
+        document.getElementById("levelStar" + h).src = localStorage.getItem("question" + h)!="blank"?"img/" + localStorage.getItem("question" + h) + "Star.png":"img/star.png";
+    }
 }
 
 function start(){

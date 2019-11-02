@@ -367,6 +367,20 @@ h1,.button-menu,.container{
     background-color: #298E7D;
 }
 
+.stars{
+    width: 10%;
+}
+
+.levelText{
+    color: white;
+    font-family: QuestionFont;
+    font-size: 180%;
+    position: absolute;
+    top: 17%;
+    width: 100%;
+    text-align: center;
+}
+
 .levelImg{
     position: absolute;
     height: 10%;
@@ -375,6 +389,9 @@ h1,.button-menu,.container{
     left: 0;
     right: 0;
     margin: auto;
+    background-image: url(../img/cont_lev.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 #imgLevel1{

@@ -47,30 +47,38 @@
     <section id="levels-section" class="sections invisible">
         <img src="img/btn_back_black.png" id="btnBack_trivia" alt="back"
         onclick="changePage('main-section','levels-section');">
-
-        <img id="imgLevel1"  class="levelImg"src="img/cont_lev.png"  alt="level1" onclick="startLevel(1);">
+        <div id="imgLevel1" onclick="startLevel(1)" class="levelImg">
+            <span class="levelText">Fácil</span>
+        </div>
+        <div id="imgLevel2" onclick="startLevel(2)" class="levelImg">
+            <span class="levelText">Intermedio</span>
+        </div>
+        <div id="imgLevel3" onclick="startLevel(3)" class="levelImg">
+            <span class="levelText">Dificil</span>
+        </div>
+        <!-- <img id="imgLevel1"  class="levelImg"src="img/cont_lev.png"  alt="level1" onclick="startLevel(1);"> -->
         <div id="divLevel1"class="divLevels">
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img  src="img/star.png" >
+            <img id="levelStar1" class="stars" src="img/star.png" >
+            <img id="levelStar2" class="stars" src="img/star.png" >
+            <img id="levelStar3" class="stars" src="img/star.png" >
+            <img id="levelStar4" class="stars" src="img/star.png" >
+            <img id="levelStar5" class="stars" src="img/star.png" >
         </div>
-        <img id="imgLevel2"  class="levelImg"src="img/cont_lev.png"  alt="level2" onclick="startLevel(2);">
+        <!-- <img id="imgLevel2"  class="levelImg"src="img/cont_lev.png"  alt="level2" onclick="startLevel(2);"> -->
         <div id="divLevel2"class="divLevels">
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png">
+            <img  id="levelStar6" class="stars" src="img/star.png" >
+            <img  id="levelStar7" class="stars" src="img/star.png" >
+            <img  id="levelStar8" class="stars" src="img/star.png" >
+            <img  id="levelStar9" class="stars" src="img/star.png" >
+            <img  id="levelStar10" class="stars" src="img/star.png">
         </div>
-        <img id="imgLevel3"  class="levelImg"src="img/cont_lev.png"  alt="level3" onclick="startLevel(3);">
+        <!-- <img id="imgLevel3"  class="levelImg"src="img/cont_lev.png"  alt="level3" onclick="startLevel(3);"> -->
         <div id="divLevel3"class="divLevels">
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >
-            <img src="img/star.png" >   
+            <img  id="levelStar11" class="stars" src="img/star.png" >
+            <img  id="levelStar12" class="stars" src="img/star.png" >
+            <img  id="levelStar13" class="stars" src="img/star.png" >
+            <img  id="levelStar14" class="stars" src="img/star.png" >
+            <img  id="levelStar15" class="stars" src="img/star.png" >   
         </div>
         
     </section>
@@ -78,7 +86,7 @@
 
     <section id="trivia-section" class="invisible">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"
-            onclick="changePage('main-section','trivia-section');">
+            onclick="changePage('levels-section','trivia-section');">
         <div id="div_question">
             <span id="question">This'll be the question</span>
         </div>

@@ -161,7 +161,6 @@ html,body{
     color: ivory;
     text-justify: distribute-all-lines;
     font-size: 125%;
-    background: red;
 }
 
 #plant-name{
@@ -172,21 +171,23 @@ html,body{
     
     font-size: 100%;
     margin-top: 0;
-    background: yellow;
+    color: rgb(201, 201, 133);
 }
 
-.containerej {
+.buttontextdiv {
     position: relative;
   }
   
   /* Bottom right text */
-  .text-blockej {
+  .buttontext {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    color: rgb(54, 15, 228);
-    padding-left: 20px;
-    padding-right: 20px;
+    bottom:0px;
+    right: 0px;
+    top: auto;
+    left: 0px;
+    font-size: 110%;
+    /* padding-left: 20px;
+    padding-right: 20px; */
   }
 
 

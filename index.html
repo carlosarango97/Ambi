@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AMBI</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" <!-- The core
+        Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
@@ -40,13 +40,19 @@
             <p class="textMenu">Demuestra aquí todos tus conocimientos sobre plantas medicinales</p>
             <input type="button" class="button-menu text" value="Comenzar"
                 onclick="changePage('levels-section','main-section')"><br>
-            <a href="#" class="textMenu"  onclick="changePage('credits-section','main-section')">Créditos</a>    
+            <a href="#" class="textMenu" onclick="changePage('credits-section','main-section')">Créditos</a>
+
+            <!-- <input type="button" class="button-menu text" value="registrar valores firebase"
+                onclick="registerMaker()"> -->
+
+            <!-- <input type="button" class="button-menu text" value="asd"
+                onclick="changePage('plants-section','main-section');"> -->
         </div>
     </section>
 
     <section id="levels-section" class="sections invisible">
         <img src="img/btn_back_black.png" id="btnBack_trivia" alt="back"
-        onclick="changePage('main-section','levels-section');">
+            onclick="changePage('main-section','levels-section');">
         <div id="imgLevel1" onclick="startLevel(1)" class="levelImg">
             <span class="levelText">Fácil</span>
         </div>
@@ -57,30 +63,30 @@
             <span class="levelText">Dificil</span>
         </div>
         <!-- <img id="imgLevel1"  class="levelImg"src="img/cont_lev.png"  alt="level1" onclick="startLevel(1);"> -->
-        <div id="divLevel1"class="divLevels">
-            <img id="levelStar1" class="stars" src="img/star.png" >
-            <img id="levelStar2" class="stars" src="img/star.png" >
-            <img id="levelStar3" class="stars" src="img/star.png" >
-            <img id="levelStar4" class="stars" src="img/star.png" >
-            <img id="levelStar5" class="stars" src="img/star.png" >
+        <div id="divLevel1" class="divLevels">
+            <img id="levelStar1" class="stars" src="img/star.png">
+            <img id="levelStar2" class="stars" src="img/star.png">
+            <img id="levelStar3" class="stars" src="img/star.png">
+            <img id="levelStar4" class="stars" src="img/star.png">
+            <img id="levelStar5" class="stars" src="img/star.png">
         </div>
         <!-- <img id="imgLevel2"  class="levelImg"src="img/cont_lev.png"  alt="level2" onclick="startLevel(2);"> -->
-        <div id="divLevel2"class="divLevels">
-            <img  id="levelStar6" class="stars" src="img/star.png" >
-            <img  id="levelStar7" class="stars" src="img/star.png" >
-            <img  id="levelStar8" class="stars" src="img/star.png" >
-            <img  id="levelStar9" class="stars" src="img/star.png" >
-            <img  id="levelStar10" class="stars" src="img/star.png">
+        <div id="divLevel2" class="divLevels">
+            <img id="levelStar6" class="stars" src="img/star.png">
+            <img id="levelStar7" class="stars" src="img/star.png">
+            <img id="levelStar8" class="stars" src="img/star.png">
+            <img id="levelStar9" class="stars" src="img/star.png">
+            <img id="levelStar10" class="stars" src="img/star.png">
         </div>
         <!-- <img id="imgLevel3"  class="levelImg"src="img/cont_lev.png"  alt="level3" onclick="startLevel(3);"> -->
-        <div id="divLevel3"class="divLevels">
-            <img  id="levelStar11" class="stars" src="img/star.png" >
-            <img  id="levelStar12" class="stars" src="img/star.png" >
-            <img  id="levelStar13" class="stars" src="img/star.png" >
-            <img  id="levelStar14" class="stars" src="img/star.png" >
-            <img  id="levelStar15" class="stars" src="img/star.png" >   
+        <div id="divLevel3" class="divLevels">
+            <img id="levelStar11" class="stars" src="img/star.png">
+            <img id="levelStar12" class="stars" src="img/star.png">
+            <img id="levelStar13" class="stars" src="img/star.png">
+            <img id="levelStar14" class="stars" src="img/star.png">
+            <img id="levelStar15" class="stars" src="img/star.png">
         </div>
-        
+
     </section>
 
 
@@ -109,16 +115,20 @@
         <div id="plant-description">
             <p id="plant-description-p"></p>
             <div id="buttonsdiv">
-                <a href="https://youtu.be/dQw4w9WgXcQ">
+                <a target="_blank" href="http://tatianandrade.com/ambi/">
                     <p id="websitehref">Descubre más</p>
                 </a>
 
-                <div class="buttontextdiv">
-                    <img src="img/Grupo 10.png" onclick="changePage('trivia-section', 'plants-section');charge(true);">
-                        <p class="buttontext">What a beautiful duwang</p>
-                </div>
+                
 
-                <div id="buttonsdivprueba" class="answerprueba" onclick="changePage('trivia-section', 'plants-section');charge(true);"><span id="spanprueba">hola123</span></div>
+                <!-- <div class="buttontextdiv">
+                    <img src="img/Grupo 10.png" onclick="changePage('trivia-section', 'plants-section');charge(true);">
+                    <p class="buttontext">What a beautiful duwang</p>
+                </div> -->
+
+                <div id="buttonsdivprueba" class="answerprueba"
+                    onclick="changePage('trivia-section', 'plants-section');charge(true);"><span
+                        id="spanprueba">Siguiente pregunta</span></div>
 
 
             </div>
@@ -127,7 +137,7 @@
     </section>
     <section id="credits-section" class="invisible sections">
         <img src="img/btn_back_white.png" id="btnBack_trivia" alt="back"
-        onclick="changePage('main-section','credits-section');">
+            onclick="changePage('main-section','credits-section');">
         <div class="container" id="divCredits">
             <h2 class="textTitle">DISEÑO</h2>
             <p class="text">
@@ -135,7 +145,7 @@
                 &<br>
                 Tatiana Andrade Giraldo<br>
             </p>
-            <h2 class="textTitle" >DESARROLLO</h2>
+            <h2 class="textTitle">DESARROLLO</h2>
             <p class="text">
                 Carlos F. Arango Ramírez,<br>
                 Juan P. Cano Cuadros<br>
@@ -162,7 +172,7 @@
                 <div class="points spinner-grow text-light" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-            </div>            
+            </div>
         </div>
     </section>
     <section id="win" class="invisible">
@@ -174,14 +184,20 @@
                 <span id="span_next_level">
                     Nivel completado
                 </span>
-            </div>            
+            </div>
         </div>
     </section>
     <script src="js/confetti.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

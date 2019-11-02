@@ -25,7 +25,7 @@ function changePage(idIn, idOut) {
         triviaStarter();
     }
     if (idIn == "plants-section") {
-        plantLoader(currentTriviaQuestion);
+        plantLoader(currentTriviaQuestion,true);
     }else if(idIn=="levels-section"){
         levelSelector();
     }
@@ -227,7 +227,7 @@ function plantLoader(currentQuestion, ok) {
 
     let DescriptionDiv = document.getElementById("plant-description");
 
-    ok ? DescriptionDiv.style.backgroundColor = "green" : DescriptionDiv.style.backgroundColor = "red";
+    ok ? DescriptionDiv.style.backgroundColor = "#1b8174" : DescriptionDiv.style.backgroundColor = "#ef5650" ;
 
     db.collection("Preguntas").doc(currentQuestion.toString()).get().then(snap => {
         document.getElementById("plant-name").innerHTML = snap.data().Correcta;

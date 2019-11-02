@@ -1,15 +1,29 @@
 const db = firebase['firestore']();
 const defaultStorage = firebase.storage();
 
-var currentTriviaQuestion;
-
+var currentTriviaQuestion = 3;
+var nextLevel = false;
 var correct = 2;
 
 function changePage(idIn, idOut) {
     if (idIn == "trivia-section") {
+        if(idOut=="plants-section" && nextLevel){
+            win(true)
+            setTimeout(function(){
+                win(false);
+                nextLevel = false;
+                if(currentTriviaQuestion==1){
+                    level = 1;
+                }else if(currentTriviaQuestion==6){
+                    level = 2;
+                }else if(currentTriviaQuestion==11){
+                    level = 3;
+                }
+                startLevel(level);
+            },2000);
+        }
         triviaStarter();
     }
-
     if (idIn == "plants-section") {
         plantLoader(currentTriviaQuestion);
     }
@@ -21,15 +35,51 @@ function ramdomizer(questions) {
     return parseInt(Math.random() * (questions - 1) + 1);;
 }
 
-function triviaStarter() {
+function startLevel(level){
+    if(level==1){
+        currentTriviaQuestion = 1;        
+    }else if(level==2){
+        currentTriviaQuestion = 6;
+    }else if(level==3){
+        currentTriviaQuestion = 11;
+    }
+    if(localStorage.getItem("question"+currentTriviaQuestion)!="blank"){
+        for(let k=0;k<5;k++){
+            localStorage.setItem("question"+(currentTriviaQuestion+k),"blank");
+        }
+    }
+    triviaStarter();
+    changePage('trivia-section','main-section');
+    charge(true);
+}
 
-    currentTriviaQuestion = ramdomizer(15);
+function start(){
+    if(localStorage.getItem("question1")==null){
+        localStorage.setItem("question1","blank");
+        localStorage.setItem("question2","blank");
+        localStorage.setItem("question3","blank");
+        localStorage.setItem("question4","blank");
+        localStorage.setItem("question5","blank");
+        localStorage.setItem("question6","blank");
+        localStorage.setItem("question7","blank");
+        localStorage.setItem("question8","blank");
+        localStorage.setItem("question9","blank");
+        localStorage.setItem("question10","blank");
+        localStorage.setItem("question11","blank");
+        localStorage.setItem("question12","blank");
+        localStorage.setItem("question13","blank");
+        localStorage.setItem("question14","blank");
+        localStorage.setItem("question15","blank");
+    }
+}
+
+function triviaStarter() {
     db.collection("Preguntas").doc(currentTriviaQuestion.toString()).get().then(snap => {
         document.getElementById("question").innerHTML = snap.data().Pregunta;
-        correct = parseInt(Math.random() * 4 + 1);
+        correct = parseInt(Math.random() * 3 + 1);
         document.getElementById("span_answer" + correct).innerHTML = snap.data().Correcta;
         var count = 1;
-        for (var k = 1; k <= 4; k++) {
+        for (var k = 1; k <= 3; k++) {
             if (k != correct) {
                 if (count == 1) {
                     document.getElementById("span_answer" + k).innerHTML = snap.data().Incorrecta1;
@@ -43,40 +93,110 @@ function triviaStarter() {
                 }
             }
         }
+        let stars = 0;
+        if(currentTriviaQuestion<6){
+            stars = 0;
+        }else if(currentTriviaQuestion<11){
+            stars = 5;
+        }else{
+            stars = 10;
+        }
+        for(let j=1;j<6;j++){
+            let value_ = "img/" + localStorage.getItem("question" + (j+stars)) + "Star.png";
+            document.getElementById("star" + j).src = value_;
+        }
         charge(false);
     });
 }
 
 function checkAnswer(answer) {
+    if(currentTriviaQuestion==5 || currentTriviaQuestion==10 || currentTriviaQuestion==15){
+        nextLevel = true;
+    }
     if (answer == correct) {
         correctAnswer(answer);
     } else {
         wrongAnswer(answer);
+    }    
+}
+
+function check(on_off, correct_incorrect){
+    for(let i=1; i<4; i++){
+        if(on_off){
+            if(i==correct){
+                document.getElementById("answer" + i).className = "correctAnswer " + document.getElementById("answer" + i).className;
+                if(!correct_incorrect){
+                    document.getElementById("answer" + i).classList.add("animation");
+                }
+            }else{
+                document.getElementById("answer" + i).className = "wrongAnswer " + document.getElementById("answer" + i).className;                 
+                if(!correct_incorrect){
+                    document.getElementById("answer" + i).classList.add("animation");
+                }
+            }
+        }else{
+            if(i==correct){
+                document.getElementById("answer" + i).classList.remove("correctAnswer");                
+                if(!correct_incorrect){
+                    document.getElementById("answer" + i).classList.remove("animation");
+                }
+            }else{                    
+                document.getElementById("answer" + i).classList.remove("wrongAnswer");           
+                if(!correct_incorrect){
+                    document.getElementById("answer" + i).classList.remove("animation");
+                }
+            }
+        }
     }
 }
 
 function wrongAnswer(answer) {
     // alert("Wrong answer!");
-    document.getElementById("answer" + answer).className += " animation wrongAnswer";
+    // document.getElementById("answer" + answer).className = "animation wrongAnswer " + document.getElementById("answer" + answer).className;
+    check(true, false);
+    // document.getElementById("answers_div").classList.add("answer_div");
     document.getElementById("block").classList.remove("invisible");
     setTimeout(function () {
         document.getElementById("answer" + answer).classList.remove("animation");
         setTimeout(function () {
             document.getElementById("block").classList.add("invisible");
-            document.getElementById("answer" + answer).classList.remove("wrongAnswer");
-            changePage("main-section", "trivia-section")
-        }, 2000);
+            // document.getElementById("answers_div").classList.remove("answer_div");
+            // document.getElementById("answer" + answer).classList.remove("wrongAnswer", "animation");
+            check(false, false);
+            charge(true);
+            changePage("plants-section","trivia-section");
+            plantLoader(currentTriviaQuestion);
+            localStorage.setItem("question" + currentTriviaQuestion,"wrong");
+            if(currentTriviaQuestion==15){
+                currentTriviaQuestion = 1;
+            }else{
+                currentTriviaQuestion++;
+            }            
+        }, 1000);
     }, 1000);
 }
 
 function correctAnswer(answer) {
-    document.getElementById("answer" + answer).classList.add("correctAnswer", "animation");
-    confetti.start();
+    // document.getElementById("answer" + answer).className = "animation correctAnswer " + document.getElementById("answer" + answer).className;
+    check(true, true);
+    document.getElementById("block").classList.remove("invisible");
+    // document.getElementById("answers_div").classList.add("answer_div");
     setTimeout(function () {
-        document.getElementById("answer" + answer).classList.remove("correctAnswer", "animation");
-        confetti.stop();
-        changePage('plants-section', 'trivia-section');
-    }, 4000);
+        win(false);
+        document.getElementById("block").classList.add("invisible");
+        // document.getElementById("answers_div").classList.remove("answer_div");
+        // document.getElementById("answer" + answer).classList.remove("correctAnswer", "animation");
+        check(false, true);
+        charge(true);
+        changePage("plants-section","trivia-section");
+        plantLoader(currentTriviaQuestion);
+        localStorage.setItem("question" + currentTriviaQuestion,"correct");
+        if(currentTriviaQuestion==15){
+            currentTriviaQuestion = 1;
+        }else{
+            currentTriviaQuestion++;
+        }
+    }, 2000);
 }
 
 function charge(ok) {
@@ -87,12 +207,20 @@ function charge(ok) {
     }
 }
 
+function win(ok){
+    if (ok) {
+        document.getElementById("win").classList.remove("invisible");
+    } else {
+        document.getElementById("win").classList.add("invisible");
+    }
+}
 
 function plantLoader(currentQuestion) {
 
     db.collection("Preguntas").doc(currentQuestion.toString()).get().then(snap => {
         document.getElementById("plant-description-p").innerHTML = snap.data().Respuesta;
         document.getElementById("plant-image").src = snap.data().PlantIMG;
+        setTimeout(function() {charge(false);},1000);
     });
 
     // var starsRef = defaultStorage.ref('AnswersImg/1_manzanilla.png');

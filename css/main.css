@@ -175,12 +175,22 @@ html,body{
 }
 
 .navigation-button{
-    border-radius: 3%;
-    width: 50%;
-    height: 15%;
+    width:55%;
+    height: 45px;
     margin: 5%;
+    /* border: 1px double rgb(0, 0, 0);
+    outline: 1px solid #ffffff;
+    border-radius: 20px;
+    border: 5px double rgb(84, 44, 194) ;
+     */
+    /* border-radius: 20px;
+    border: 5px solid blue; 
+    outline: 5px solid red; */
+
+    border: 5px solid blue; 
     
 }
+
 
 /* -----------main menu and credits------------*/
 h1{

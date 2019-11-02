@@ -1,7 +1,7 @@
 const db = firebase['firestore']();
 const defaultStorage = firebase.storage();
 
-var currentTriviaQuestion;
+var currentTriviaQuestion = 1;
 
 var correct = 2;
 
@@ -11,7 +11,7 @@ function changePage(idIn, idOut) {
     }
 
     if (idIn == "plants-section") {
-        plantLoader(currentTriviaQuestion);
+        plantLoader(currentTriviaQuestion,true);
     }
     document.getElementById(idIn).classList.remove("invisible");
     document.getElementById(idOut).className += " invisible";
@@ -88,18 +88,19 @@ function charge(ok) {
 }
 
 
-function plantLoader(currentQuestion) {
+function plantLoader(currentQuestion,ok) {
+
+    let DescriptionDiv = document.getElementById("plant-description");
+
+    ok?DescriptionDiv.style.backgroundColor = "green": DescriptionDiv.style.backgroundColor = "red";
 
     db.collection("Preguntas").doc(currentQuestion.toString()).get().then(snap => {
-        document.getElementById("plant-description-p").innerHTML = snap.data().Respuesta;
+        document.getElementById("plant-name").innerHTML = snap.data().Correcta;
         document.getElementById("plant-image").src = snap.data().PlantIMG;
+        document.getElementById("plant-description-p").src = snap.data().Descripcion;
     });
 
-    // var starsRef = defaultStorage.ref('AnswersImg/1_manzanilla.png');
-    // document.getElementById("plant-image").src = (starsRef.getDownloadURL().then(function (url) {})).toString();
-
-    // document.getElementById("plant-image").src = 'https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F1_manzanilla.png?alt=media&token=e28265c8-e837-4878-8caa-82e1f1e17317';
-}
+    }
 
 function registerMaker() {
 
@@ -142,27 +143,44 @@ function registerMaker() {
         "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F4_Tomillo.png?alt=media&token=a01fdded-08a8-41e7-b077-13a6498e4ce6",
         "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F5_lavanda.png?alt=media&token=c6d65c8c-6f94-4175-823e-3b8bd057c8d6",
         "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F6_oregano.png?alt=media&token=1ba12efb-43bd-43b5-95e8-f97dae0f07b3",
-        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F7_ginseng.png?alt=media&token=27d3fb57-1127-4c21-a6ea-7b4d2cc6e68d",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F7_pasiflora.png?alt=media&token=4b2f8de8-2069-4e3a-8b16-d6b3594b293a",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F8_ginseng.png?alt=media&token=c5bbdfd9-5fd8-4e69-a4d6-90aea3e55edb",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F9_apio.png?alt=media&token=46d141ab-78df-4088-b641-be7cc439b171",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F10_ruda.png?alt=media&token=18574709-fe64-4e69-8192-2c6fc29e7f07",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F11_calendula.png?alt=media&token=f6f80893-5de5-4574-ac2e-4f38d06f7a6c",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F12_limoncillo.png?alt=media&token=1d9f01da-7473-496c-a448-1e0f92719332",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/meme1480132738gen.jpg?alt=media&token=9d28fa8c-7925-4f27-b567-8ca956c24829",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/meme1480132738gen.jpg?alt=media&token=9d28fa8c-7925-4f27-b567-8ca956c24829",
+        "https://firebasestorage.googleapis.com/v0/b/ambi-67875.appspot.com/o/AnswersImg%2F15_HelechoGuSuiBu.png?alt=media&token=4b829fdb-405c-4226-893e-0dffd4d1b568",
 
+    ];
+
+    var descripcion = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     ];
 
     for (let i = 0; i < preguntas.length; i++) {
         db.collection("Preguntas").doc((i + 1).toString()).set({
-            Correcta: "Correcta",
+            Correcta: respuestas[i],
             Incorrecta1: "Incorrecta",
             Incorrecta2: "Incorrecta",
             Incorrecta3: "Incorrecta",
             PlantIMG: plantsurl[i],
             Pregunta: preguntas[i],
-            Respuesta: respuestas[i],
+            Descripcion: descripcion[i],
         }).then(function () {
             console.log("Document successfully written!");
         });

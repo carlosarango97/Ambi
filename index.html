@@ -41,8 +41,13 @@
             <input type="button" class="button-menu text" value="Credits"
                 onclick="changePage('credits-section','main-section')">
 
-                <!-- <input type="button" class="button-menu text" value="asd"
+                <!-- <input type="button" class="button-menu text" value="registrar valores firebase"
                 onclick="registerMaker()"> -->
+
+                <input type="button" class="button-menu text" value="asd"
+                onclick="changePage('plants-section','main-section');">
+
+                
         </div>
     </section>
     <section id="trivia-section" class="invisible">
@@ -59,24 +64,24 @@
         </div>
     </section>
     <section id="plants-section" class="invisible">
-        <div>
+        <!-- <div> -->
             <img id="plant-image" src="img/Plants-Section/ejemplo1.png">
+            <p id="plant-name">This plant is useful for win mobile applications.</p>
             <div id="plant-description">
                 <p id="plant-description-p">This plant is useful for win mobile applications.</p>
 
                 <div id="buttonsdiv">
-                    <button class="navigation-button"
-                        onclick="window.open('https://youtu.be/dQw4w9WgXcQ?t=1' , 'MiPestañaNueva' , 'width=800, height=600, scrollbars=no')">
-                        Find out more!
-                    </button>
+                    <a href="https://youtu.be/dQw4w9WgXcQ"><p>Descubre más</p></a>
 
                     <button class="navigation-button"
                         onclick="changePage('trivia-section', 'plants-section');charge(true);">
                         Next question
                     </button>
+
+                    <img src="img/Grupo 10.png" onclick="changePage('trivia-section', 'plants-section');charge(true);">
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </section>
     <section id="credits-section" class="invisible sections">
         <img src="img/btnBack.png" id="btnBack_trivia" alt="back"

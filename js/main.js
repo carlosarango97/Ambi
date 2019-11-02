@@ -49,7 +49,7 @@ function startLevel(level){
         }
     }
     triviaStarter();
-    changePage('trivia-section','main-section');
+    changePage('trivia-section','levels-section');
     charge(true);
 }
 

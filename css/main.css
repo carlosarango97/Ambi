@@ -297,6 +297,18 @@ html,body{
     padding-right: 20px; */
   }
 
+  .answer{
+    width: 75%;
+    background-image: url(../img/Grupo\ 10.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 8%;
+    padding: 5% 0%;
+    color: gray;
+    font-size: 140%;
+    width: 100%;
+}
+
 
 /* -----------main menu and credits------------*/
 

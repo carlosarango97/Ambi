@@ -36,9 +36,10 @@
     <section id="main-section" class="sections">
         <img src="img/logo.png" id="image" alt="logo">
         <div class="container" id="divButtons">
+            <p class="textMenu">Demuestra aquí todos tus conocimientos sobre plantas medicinales</p>
             <input type="button" class="button-menu text" value="Comenzar"
                 onclick="changePage('levels-section','main-section')"><br>
-            <a href="#" onclick="changePage('credits-section','main-section')">Créditos</a>    
+            <a href="#" class="textMenu"  onclick="changePage('credits-section','main-section')">Créditos</a>    
         </div>
     </section>
 
@@ -46,7 +47,7 @@
         <img src="img/btn_back_black.png" id="btnBack_trivia" alt="back"
         onclick="changePage('main-section','levels-section');">
 
-        <img id="imgLevel1"  class="levelImg"src="img/cont_lev.png"  alt="level1" onclick="changePage('trivia-section','levels-section')">
+        <img id="imgLevel1"  class="levelImg"src="img/cont_lev.png"  alt="level1" onclick="startLevel(1);">
         <div id="divLevel1"class="divLevels">
             <img src="img/star.png" >
             <img src="img/star.png" >
@@ -54,7 +55,7 @@
             <img src="img/star.png" >
             <img  src="img/star.png" >
         </div>
-        <img id="imgLevel2"  class="levelImg"src="img/cont_lev.png"  alt="level2">
+        <img id="imgLevel2"  class="levelImg"src="img/cont_lev.png"  alt="level2" onclick="startLevel(2);">
         <div id="divLevel2"class="divLevels">
             <img src="img/star.png" >
             <img src="img/star.png" >
@@ -62,7 +63,7 @@
             <img src="img/star.png" >
             <img src="img/star.png">
         </div>
-        <img id="imgLevel3"  class="levelImg"src="img/cont_lev.png"  alt="level3">
+        <img id="imgLevel3"  class="levelImg"src="img/cont_lev.png"  alt="level3" onclick="startLevel(2);">
         <div id="divLevel3"class="divLevels">
             <img src="img/star.png" >
             <img src="img/star.png" >
@@ -117,7 +118,7 @@
                 &<br>
                 Tatiana Andrade Giraldo<br>
             </p>
-            <h2 class="textTitle" class="text">DESARROLLO</h2>
+            <h2 class="textTitle" >DESARROLLO</h2>
             <p class="text">
                 Carlos F. Arango Ramírez,<br>
                 Juan P. Cano Cuadros<br>

@@ -97,7 +97,7 @@ function plantLoader(currentQuestion, ok) {
     db.collection("Preguntas").doc(currentQuestion.toString()).get().then(snap => {
         document.getElementById("plant-name").innerHTML = snap.data().Correcta;
         document.getElementById("plant-image").src = snap.data().PlantIMG;
-        document.getElementById("plant-description-p").src = snap.data().Descripcion;
+        document.getElementById("plant-description-p").innerHTML = snap.data().Descripcion;
     });
 
 }

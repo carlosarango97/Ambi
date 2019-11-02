@@ -152,44 +152,42 @@ html,body{
     border-top-left-radius: 15%;
     /* margin-top: 5%; */
     bottom: 0px;
+    
 }
 
-#plant-description p{
-    display: inline-flexbox;
-    margin: 10%;
+#plant-description-p{
+    margin: 7%;
     text-align: center;
     color: ivory;
-    margin-left: auto;
-    margin-right: auto;
+    text-justify: distribute-all-lines;
+    font-size: 125%;
+    background: red;
 }
 
 #plant-name{
-    margin-top: 1%;
+    margin-top: 0;
 }
 
-#buttonsdiv{
-   /* background: blue; */
-   text-align: center;
-   /* height: auto; */
-   height: 56%;
-}
-
-.navigation-button{
-    width:55%;
-    height: 45px;
-    margin: 5%;
-    /* border: 1px double rgb(0, 0, 0);
-    outline: 1px solid #ffffff;
-    border-radius: 20px;
-    border: 5px double rgb(84, 44, 194) ;
-     */
-    /* border-radius: 20px;
-    border: 5px solid blue; 
-    outline: 5px solid red; */
-
-    border: 5px solid blue; 
+#websitehref{
     
+    font-size: 100%;
+    margin-top: 0;
+    background: yellow;
 }
+
+.containerej {
+    position: relative;
+  }
+  
+  /* Bottom right text */
+  .text-blockej {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgb(54, 15, 228);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
 
 /* -----------main menu and credits------------*/

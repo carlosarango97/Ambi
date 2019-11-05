@@ -334,19 +334,21 @@ html,body{
     font-family: QuestionFont;
 }
 
+@font-face{
+    font-family: TitleFont;
+    src: url(ATMASERIFLFBOLDITALIC.TTF);
+}
 
 /* -----------main menu and credits------------*/
 
 .text{
-    font-family: "Book";
-    font-style: italic;
+    font-family: QuestionFont;
     color: whitesmoke;
     font-size: 140%;
 }
 
 .textTitle{
-    
-    font-weight: bold;   
+    font-family: TitleFont;   
     color: whitesmoke;
     font-size: 100%;
 }
@@ -408,7 +410,7 @@ h1,.button-menu,.container{
     bottom: 0;
     left: 0;
     right: 0;
-    width: 40%;
+    width: 45%;
     height: 40%;
     margin: auto;
     
@@ -482,8 +484,7 @@ h1,.button-menu,.container{
 
 .textMenu{
     font-size: 125%;
-    font-family: "Book Antiqua";
-    font-style: italic;
+    font-family: QuestionFont;
     color:rgb(58, 68, 82);
 }
 

@@ -23,10 +23,7 @@ function changePage(idIn, idOut) {
             }, 2000);
         }
         triviaStarter();
-    }
-    if (idIn == "plants-section") {
-        plantLoader(currentTriviaQuestion, true);
-    } else if (idIn == "levels-section") {
+    }else if(idIn=="levels-section"){
         levelSelector();
     }
     document.getElementById(idIn).classList.remove("invisible");
@@ -166,45 +163,46 @@ function wrongAnswer(answer) {
     document.getElementById("block").classList.remove("invisible");
     setTimeout(function () {
         document.getElementById("answer" + answer).classList.remove("animation");
+        plantLoader(currentTriviaQuestion, false);
+        charge(true);
         setTimeout(function () {
             document.getElementById("block").classList.add("invisible");
             // document.getElementById("answers_div").classList.remove("answer_div");
             // document.getElementById("answer" + answer).classList.remove("wrongAnswer", "animation");
             check(false, false);
-            charge(true);
-            changePage("plants-section", "trivia-section");
-            plantLoader(currentTriviaQuestion);
-            localStorage.setItem("question" + currentTriviaQuestion, "wrong");
-            if (currentTriviaQuestion == 15) {
+            changePage("plants-section","trivia-section");
+            localStorage.setItem("question" + currentTriviaQuestion,"wrong");
+            if(currentTriviaQuestion==15){
                 currentTriviaQuestion = 1;
             } else {
                 currentTriviaQuestion++;
             }
-        }, 1000);
+            charge(false);            
+        }, 2000);
     }, 1000);
 }
 
 function correctAnswer(answer) {
-    // document.getElementById("answer" + answer).className = "animation correctAnswer " + document.getElementById("answer" + answer).className;
+    document.getElementById("block").classList.remove("invisible");    
     check(true, true);
-    document.getElementById("block").classList.remove("invisible");
-    // document.getElementById("answers_div").classList.add("answer_div");
     setTimeout(function () {
-        win(false);
-        document.getElementById("block").classList.add("invisible");
-        // document.getElementById("answers_div").classList.remove("answer_div");
-        // document.getElementById("answer" + answer).classList.remove("correctAnswer", "animation");
-        check(false, true);
+        plantLoader(currentTriviaQuestion, true);
         charge(true);
-        changePage("plants-section", "trivia-section");
-        plantLoader(currentTriviaQuestion);
-        localStorage.setItem("question" + currentTriviaQuestion, "correct");
-        if (currentTriviaQuestion == 15) {
-            currentTriviaQuestion = 1;
-        } else {
-            currentTriviaQuestion++;
-        }
-    }, 2000);
+        setTimeout(function () {
+            document.getElementById("block").classList.add("invisible");
+            // document.getElementById("answers_div").classList.remove("answer_div");
+            // document.getElementById("answer" + answer).classList.remove("wrongAnswer", "animation");
+            check(false, true);
+            changePage("plants-section","trivia-section");
+            localStorage.setItem("question" + currentTriviaQuestion,"correct");
+            if(currentTriviaQuestion==15){
+                currentTriviaQuestion = 1;
+            }else{
+                currentTriviaQuestion++;
+            }
+            charge(false);            
+        }, 2000);
+    }, 1000);
 }
 
 function charge(ok) {
@@ -233,8 +231,7 @@ function plantLoader(currentQuestion, ok) {
         document.getElementById("plant-name").innerHTML = snap.data().Correcta;
         document.getElementById("plant-image").src = snap.data().PlantIMG;
         document.getElementById("plant-description-p").innerHTML = snap.data().Descripcion;
-        setTimeout(function () { charge(false); }, 1000);
-
+        // setTimeout(function() {charge(false);},1000);        
     });
 
 }

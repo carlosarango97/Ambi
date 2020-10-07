@@ -34,7 +34,7 @@
 </head>
 
 <body onload="triviaStarter();start();">
-    <section id="main-section" class="sections">
+    <section id="main-section" class="sections invisible">
         <img src="img/logo.png" id="image" alt="logo">
         <div class="container" id="divButtons">
             <p class="textMenu">Demuestra aquí todos tus conocimientos sobre plantas medicinales</p>
@@ -120,9 +120,6 @@
                 <a target="_blank" href="http://tatianandrade.com/ambi/">
                     <p id="websitehref">Descubre más</p>
                 </a>
-
-                
-
                 <!-- <div class="buttontextdiv">
                     <img src="img/Grupo 10.png" onclick="changePage('trivia-section', 'plants-section');charge(true);">
                     <p class="buttontext">What a beautiful duwang</p>
@@ -131,7 +128,6 @@
                 <div id="buttonsdivprueba" class="answerprueba"
                     onclick="changePage('trivia-section', 'plants-section');charge(true);"><span
                         id="spanprueba">Siguiente pregunta</span></div>
-
 
             </div>
         </div>
@@ -188,6 +184,12 @@
                 </span>
             </div>
         </div>
+    </section>
+    <section id="topScore" class="">
+        <h1>Top Score Ambi</h1>
+        <img src="/img/trophy.png" class="trophy" alt="">
+        <ol id="scoreList">
+        </ol>
     </section>
     <script src="js/confetti.js"></script>
     <script src="js/main.js"></script>

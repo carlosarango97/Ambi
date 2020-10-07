@@ -505,3 +505,12 @@ h1,.button-menu,.container{
         width: 50%;
     }
 }
+
+.trophy{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+    margin-top: 20px;
+}
